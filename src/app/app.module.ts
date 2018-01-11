@@ -14,6 +14,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { FriendsComponent } from './friends/friends.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     HomeComponent,
     AboutComponent,
-    LoginComponent
+    LoginComponent,
+    FriendsComponent,
+    RegisterComponent
   ],
   imports: [
     AppRoutingModule,

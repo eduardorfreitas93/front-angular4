@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FriendsComponent } from './friends/friends.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'app', pathMatch: 'full'},
@@ -18,11 +20,13 @@ const routes: Routes = [
       [
         {path: '', redirectTo: 'home', pathMatch: 'full'},
         {path: 'home', component: HomeComponent, canActivate: [EnsureAuthenticatedService]},
+        {path: 'friend', component: FriendsComponent, canActivate: [EnsureAuthenticatedService]},
         {path: 'about', component: AboutComponent, canActivate: [EnsureAuthenticatedService]},
       ]
   },
 
   {path: 'login', component: LoginComponent, canActivate: [LoginRedirectService]},
+  {path: 'register', component: RegisterComponent, canActivate: [LoginRedirectService]},
   {path: '**', redirectTo: 'app', pathMatch: 'full'},
 ];
 

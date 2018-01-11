@@ -1,0 +1,33 @@
+<ngb-tabset #t="ngbTabset">
+  <ngb-tab id="tab-selectbyid1" title="Todos">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div *ngFor="let ar of arr" class="card col-lg-3 col-md-4 col-sm-4 m-4 p-0" style="width: 18rem;">
+          <img class="align-self-center w-50"
+               src="https://cdn.thingiverse.com/assets/ff/0f/83/65/d7/WomanFace.jpg"
+               alt="Generic placeholder image">
+          <div class="card-body">
+            <h5 class="card-title">Nome</h5>
+            <a class="btn btn-primary cursor text-light">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+
+  <ngb-tab id="tab-selectbyid2" title="Amigos">
+    <ng-template ngbTabContent>
+      <div class="row">
+        <div class="card col-lg-3 col-md-4 col-sm-4 m-4 p-0" style="width: 18rem;">
+          <img class="align-self-center w-50"
+               src="https://cdn.thingiverse.com/assets/ff/0f/83/65/d7/WomanFace.jpg"
+               alt="Generic placeholder image">
+          <div class="card-body">
+            <h5 class="card-title">Nome</h5>
+            <a class="btn btn-primary cursor text-light">Seguir</a>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

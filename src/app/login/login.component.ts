@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,11 +9,17 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) {
+  model: any = {};
+
+  constructor(private auth: AuthService, private router: Router) {
   }
 
   ngOnInit() {
-    console.log(this.auth.test());
+  }
+
+  onLogin(): void {
+    localStorage.setItem('token', 'qwert');
+    this.router.navigateByUrl('app/home');
   }
 
 }

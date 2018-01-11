@@ -1,45 +1,32 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" routerLink="home">Dashboard</a>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+  <a class="navbar-brand text-white" routerLink="home">Front-Angular</a>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <!--<ul class="navbar-nav mr-auto">-->
-      <!--<li class="nav-item">-->
-      <!--<a class="nav-link" routerLink="home">Home</a>-->
-      <!--</li>-->
-
-      <!--<li class="nav-item">-->
-      <!--<a class="nav-link" routerLink="about">About</a>-->
-      <!--</li>-->
-      <!--</ul>-->
-
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-9 offset-md-9">
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </div>
+  <form class="form-inline">
+    <div class="form-group">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search">
     </div>
-  </nav>
-</header>
+  </form>
 
-<div class="row">
-  <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-    <ul class="nav nav-pills flex-column">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="home" [routerLinkActive]="['active']">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="about" [routerLinkActive]="['active']">About</a>
-      </li>
-    </ul>
-  </nav>
+  <a class="btn btn-danger cursor text-light" (click)="onLogout()">Sair</a>
+</nav>
 
-  <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-    <router-outlet></router-outlet>
-  </main>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" [routerLinkActive]="['active']">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about" [routerLinkActive]="['active']">About</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
 </div>

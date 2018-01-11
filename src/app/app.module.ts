@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './services/auth.service';
+import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
+import { LoginRedirectService } from './services/login-redirect.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -23,9 +26,14 @@ import { LoginComponent } from './login/login.component';
   imports: [
     AppRoutingModule,
     NgbModule.forRoot(),
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    EnsureAuthenticatedService,
+    LoginRedirectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

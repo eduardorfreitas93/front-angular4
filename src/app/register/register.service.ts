@@ -7,16 +7,21 @@ import { BASE_URL } from '../../environments/environment';
 @Injectable()
 export class RegisterService {
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(private http: HttpClient,
+              private auth: AuthService) {
   }
 
-  async register (user): Promise<any> {
+  async register(user): Promise<any> {
     try {
       const res = await this.http.post(`${BASE_URL}/api/register`, user).toPromise();
-      await this.auth.setTokenLocalStorage(res.token);
+      await this.auth.setTokenLocalStorage(res['token']);
       return;
     } catch (err) {
       throw err;
     }
+  }
+
+  upload(formData: FormData) {
+    this.http.post(`${BASE_URL}/api/file/upload`, formData).subscribe(data => console.log(data));
   }
 }

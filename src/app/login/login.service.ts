@@ -13,7 +13,7 @@ export class LoginService {
   async login (user): Promise<any> {
     try {
       const res = await this.http.post(`${BASE_URL}/api/login_check`, user).toPromise();
-      await this.auth.setTokenLocalStorage(res.token);
+      await this.auth.setTokenLocalStorage(res['token']);
       return;
     } catch (err) {
       throw err;

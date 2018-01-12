@@ -5,8 +5,15 @@ export class AuthService {
   constructor() {
   }
 
-  test(): string {
-    return 'work';
+  setTokenLocalStorage(token): Promise<any> {
+    return new Promise((resolve, reject) => {
+      localStorage.setItem('token', token);
+      resolve();
+    });
+  }
+
+  getTokenLocalStorage(): string {
+    return localStorage.getItem('token');
   }
 
 }

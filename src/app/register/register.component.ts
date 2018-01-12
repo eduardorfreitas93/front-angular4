@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from './register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,11 +11,18 @@ export class RegisterComponent implements OnInit {
 
   model: any = {};
 
-  constructor() { }
+  constructor(private registerService: RegisterService, private router: Router) {
+  }
 
   ngOnInit() {
   }
 
-  onRegister() {}
-
+  async onRegister() {
+    try {
+      await this.registerService.register(this.model);
+      this.router.navigateByUrl('app/home');
+    } catch (err) {
+      console.log(err.error.error.exception[0].message);
+    }
+  }
 }

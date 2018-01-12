@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
+import { RegisterService } from './register/register.service';
+import { LoginService } from './login/login.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -29,14 +32,17 @@ import { RegisterComponent } from './register/register.component';
   ],
   imports: [
     AppRoutingModule,
-    NgbModule.forRoot(),
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    NgbModule.forRoot(),
   ],
   providers: [
     AuthService,
     EnsureAuthenticatedService,
-    LoginRedirectService
+    LoginRedirectService,
+    RegisterService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

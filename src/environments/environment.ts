@@ -7,4 +7,4 @@ export const environment = {
   production: false
 };
 
-export const BASE_URL = 'http://localhost/apiSymfony/web/app_dev.php';
+export const BASE_URL = 'http://localhost/symfony3-api-rest/web/app_dev.php';

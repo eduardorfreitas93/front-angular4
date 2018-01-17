@@ -11,9 +11,9 @@ export class RegisterService {
               private auth: AuthService) {
   }
 
-  async register(user): Promise<any> {
+  async register(formData: FormData): Promise<any> {
     try {
-      const res = await this.http.post(`${BASE_URL}/api/register`, user).toPromise();
+      const res = await this.http.post(`${BASE_URL}/api/register`, formData).toPromise();
       await this.auth.setTokenLocalStorage(res['token']);
       return;
     } catch (err) {
@@ -21,7 +21,7 @@ export class RegisterService {
     }
   }
 
-  upload(formData: FormData) {
-    this.http.post(`${BASE_URL}/api/file/upload`, formData).subscribe(data => console.log(data));
+  async upload(formData: FormData) {
+    await this.http.post(`${BASE_URL}/api/file/upload`, formData).toPromise();
   }
 }

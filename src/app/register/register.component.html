@@ -8,7 +8,7 @@
             <div class="card-header">
               <h3 class="mb-0">
                 <a class="text-dark" routerLink="login"><i class="fa fa-arrow-left mr-2"
-                                                                     aria-hidden="true"></i></a>
+                                                           aria-hidden="true"></i></a>
                 Registrar
               </h3>
             </div>
@@ -19,83 +19,84 @@
 
                 <div class="form-group">
                   <label for="inputFile1">Foto</label>
-                  <input type="file" name="file" class="form-control-file" id="inputFile1" #fileInput (change)="upload($event)">
+                  <input type="file" name="file" class="form-control-file" id="inputFile1" #fileInput
+                         (change)="upload($event)">
                 </div>
 
-                <!--<div class="form-group">-->
-                  <!--<label for="inputLogin1">Login</label>-->
-                  <!--<input type="text"-->
-                         <!--class="form-control"-->
-                         <!--[ngClass]="{ 'is-invalid': form.submitted && !login.valid }"-->
-                         <!--[(ngModel)]="model.login"-->
-                         <!--#login="ngModel"-->
-                         <!--id="inputLogin1"-->
-                         <!--name="login"-->
-                         <!--aria-describedby="loginHelp"-->
-                         <!--placeholder="Login"-->
-                         <!--required>-->
-                  <!--<div class="invalid-feedback">Login obrigatório</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                  <label for="inputLogin1">Login</label>
+                  <input type="text"
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': form.submitted && !login.valid }"
+                         [(ngModel)]="model.login"
+                         #login="ngModel"
+                         id="inputLogin1"
+                         name="login"
+                         aria-describedby="loginHelp"
+                         placeholder="Login"
+                         required>
+                  <div class="invalid-feedback">Login obrigatório</div>
+                </div>
 
-                <!--<div class="form-group">-->
-                  <!--<label for="inputPassword1">Senha</label>-->
-                  <!--<input type="password"-->
-                         <!--class="form-control"-->
-                         <!--[ngClass]="{ 'is-invalid': form.submitted && !password.valid }"-->
-                         <!--[(ngModel)]="model.password"-->
-                         <!--#password="ngModel"-->
-                         <!--id="inputPassword1"-->
-                         <!--name="password"-->
-                         <!--placeholder="Senha"-->
-                         <!--required>-->
-                  <!--<div class="invalid-feedback">Senha obrigatória</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                  <label for="inputPassword1">Senha</label>
+                  <input type="password"
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': form.submitted && !password.valid }"
+                         [(ngModel)]="model.password"
+                         #password="ngModel"
+                         id="inputPassword1"
+                         name="password"
+                         placeholder="Senha"
+                         required>
+                  <div class="invalid-feedback">Senha obrigatória</div>
+                </div>
 
-                <!--<div class="form-group">-->
-                  <!--<label for="inputName1">Nome</label>-->
-                  <!--<input type="text"-->
-                         <!--class="form-control"-->
-                         <!--[ngClass]="{ 'is-invalid': form.submitted && !name.valid }"-->
-                         <!--[(ngModel)]="model.name"-->
-                         <!--#name="ngModel"-->
-                         <!--id="inputName1"-->
-                         <!--name="name"-->
-                         <!--aria-describedby="nameHelp"-->
-                         <!--placeholder="Nome"-->
-                         <!--required>-->
-                  <!--<div class="invalid-feedback">Nome obrigatório</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                  <label for="inputName1">Nome</label>
+                  <input type="text"
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': form.submitted && !name.valid }"
+                         [(ngModel)]="model.name"
+                         #name="ngModel"
+                         id="inputName1"
+                         name="name"
+                         aria-describedby="nameHelp"
+                         placeholder="Nome"
+                         required>
+                  <div class="invalid-feedback">Nome obrigatório</div>
+                </div>
 
-                <!--<div class="form-group">-->
-                  <!--<label for="inputSurname1">Sobrenome</label>-->
-                  <!--<input type="text"-->
-                         <!--class="form-control"-->
-                         <!--[ngClass]="{ 'is-invalid': form.submitted && !surname.valid }"-->
-                         <!--[(ngModel)]="model.surname"-->
-                         <!--#surname="ngModel"-->
-                         <!--id="inputSurname1"-->
-                         <!--name="surname"-->
-                         <!--placeholder="Sobrenome"-->
-                         <!--required>-->
-                  <!--<div class="invalid-feedback">Sobrenome obrigatória</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                  <label for="inputSurname1">Sobrenome</label>
+                  <input type="text"
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': form.submitted && !surname.valid }"
+                         [(ngModel)]="model.surname"
+                         #surname="ngModel"
+                         id="inputSurname1"
+                         name="surname"
+                         placeholder="Sobrenome"
+                         required>
+                  <div class="invalid-feedback">Sobrenome obrigatória</div>
+                </div>
 
-                <!--<div class="form-group">-->
-                  <!--<label for="inputEmail1">Email</label>-->
-                  <!--<input type="email"-->
-                         <!--email-->
-                         <!--class="form-control"-->
-                         <!--[ngClass]="{ 'is-invalid': form.submitted && !email.valid }"-->
-                         <!--[(ngModel)]="model.email"-->
-                         <!--#email="ngModel"-->
-                         <!--id="inputEmail1"-->
-                         <!--name="email"-->
-                         <!--aria-describedby="emailHelp"-->
-                         <!--placeholder="Email"-->
-                         <!--required>-->
-                  <!--<div class="invalid-feedback" *ngIf="email.errors?.required">Email obrigatório</div>-->
-                  <!--<div class="invalid-feedback" *ngIf="email.errors?.email">Insira um email</div>-->
-                <!--</div>-->
+                <div class="form-group">
+                  <label for="inputEmail1">Email</label>
+                  <input type="email"
+                         email
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': form.submitted && !email.valid }"
+                         [(ngModel)]="model.email"
+                         #email="ngModel"
+                         id="inputEmail1"
+                         name="email"
+                         aria-describedby="emailHelp"
+                         placeholder="Email"
+                         required>
+                  <div class="invalid-feedback" *ngIf="email.errors?.required">Email obrigatório</div>
+                  <div class="invalid-feedback" *ngIf="email.errors?.email">Insira um email</div>
+                </div>
 
                 <button type="submit" [disabled]="!form.form.valid" class="btn btn-success btn-lg float-right m-2">
                   Registrar

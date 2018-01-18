@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { TokenInterceptor } from './services/token.interceptor';
+import { AuthErrorHandler } from './services/auth.error-handler';
 import { AuthService } from './services/auth.service';
 import { EnsureAuthenticatedService } from './services/ensure-authenticated.service';
 import { LoginRedirectService } from './services/login-redirect.service';
@@ -42,7 +44,16 @@ import { RegisterComponent } from './register/register.component';
     EnsureAuthenticatedService,
     LoginRedirectService,
     RegisterService,
-    LoginService
+    LoginService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: AuthErrorHandler
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -14,7 +14,7 @@ export class RegisterService {
   async register(formData: FormData): Promise<any> {
     try {
       const res = await this.http.post(`${BASE_URL}/api/register`, formData).toPromise();
-      await this.auth.setTokenLocalStorage(res['token']);
+      await this.auth.setToken(res['token']);
       return;
     } catch (err) {
       throw err;

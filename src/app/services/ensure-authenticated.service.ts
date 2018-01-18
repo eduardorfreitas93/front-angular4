@@ -9,7 +9,7 @@ export class EnsureAuthenticatedService implements CanActivate {
   }
 
   canActivate(): boolean {
-    if (localStorage.getItem('token')) {
+    if (!this.auth.isTokenExpired()) {
       return true;
     } else {
       this.router.navigateByUrl('login');

@@ -8,7 +8,7 @@ export class LoginRedirectService implements CanActivate {
   constructor(private auth: AuthService, private router: Router) { }
 
   canActivate(): boolean {
-    if (localStorage.getItem('token')) {
+    if (!this.auth.isTokenExpired()) {
       this.router.navigateByUrl('app/home');
       return false;
     } else {

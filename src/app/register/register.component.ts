@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { RegisterService } from './register.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+
+import {RegisterService} from './register.service';
+import {AuthFirebaseService} from '../services/auth-firebase.service';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +14,9 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   formData: FormData = new FormData();
 
-  constructor(private registerService: RegisterService, private router: Router) {
+  constructor(private registerService: RegisterService,
+              private router: Router,
+              private authFirebase: AuthFirebaseService) {
   }
 
   ngOnInit() {
@@ -20,7 +24,14 @@ export class RegisterComponent implements OnInit {
 
   async onRegister() {
     try {
-      await this.registerService.register(this.model);
+      if (this.formData.has('file')) {
+        const idImage = await this.registerService.upload(this.formData);
+        this.model.idImage = idImage;
+      }
+
+      const uid = await this.registerService.register(this.model);
+
+      await this.authFirebase.login(uid);
 
       this.router.navigateByUrl('app/home');
     } catch (err) {

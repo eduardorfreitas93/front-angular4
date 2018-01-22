@@ -3,9 +3,13 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AngularFireModule } from 'angularfire2';
+import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireDatabase, AngularFireDatabaseModule} from 'angularfire2/database';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { FirebaseConfig } from './../environments/firebase.config';
 import { TokenInterceptor } from './services/token.interceptor';
 import { AuthErrorHandler } from './services/auth.error-handler';
 import { AuthService } from './services/auth.service';
@@ -13,6 +17,7 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { RegisterService } from './register/register.service';
 import { LoginService } from './login/login.service';
+import {AuthFirebaseService} from './services/auth-firebase.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -38,6 +43,9 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
+    AngularFireModule.initializeApp(FirebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [
     AuthService,
@@ -45,6 +53,9 @@ import { RegisterComponent } from './register/register.component';
     LoginRedirectService,
     RegisterService,
     LoginService,
+    AuthFirebaseService,
+    AngularFireDatabase,
+    AngularFireAuth,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

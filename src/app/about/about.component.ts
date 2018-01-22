@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() {
+  listPeople: Observable<any[]>;
+
+  constructor(private afd: AngularFireDatabase) {
   }
 
   ngOnInit() {
+    this.listPeople = this.afd.list('/pessoas').valueChanges();
   }
 }

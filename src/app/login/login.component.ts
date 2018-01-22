@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { LoginService } from './login.service';
+import {LoginService} from './login.service';
+import {AuthFirebaseService} from '../services/auth-firebase.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   model: any = {};
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService,
+              private router: Router,
+              private authFirebase: AuthFirebaseService) {
   }
 
   ngOnInit() {
@@ -20,7 +23,9 @@ export class LoginComponent implements OnInit {
 
   async onLogin() {
     try {
-      await this.loginService.login(this.model);
+      const uid = await this.loginService.login(this.model);
+      await this.authFirebase.login(uid);
+
       this.router.navigateByUrl('app/home');
     } catch (err) {
       console.log(err.error.error.exception[0].message);

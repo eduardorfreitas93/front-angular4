@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as jwt_decode from 'jwt-decode';
 
 export const TOKEN_NAME: string = 'jwt_token';

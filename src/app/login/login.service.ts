@@ -14,7 +14,7 @@ export class LoginService {
     try {
       const res = await this.http.post(`${BASE_URL}/api/login_check`, user).toPromise();
       await this.auth.setToken(res['token']);
-      return;
+      return res['data']['uid'];
     } catch (err) {
       throw err;
     }

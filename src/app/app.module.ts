@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
-import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
-import {AngularFireDatabase, AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireAuth, AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,7 +19,8 @@ import { EnsureAuthenticatedService } from './services/ensure-authenticated.serv
 import { LoginRedirectService } from './services/login-redirect.service';
 import { RegisterService } from './register/register.service';
 import { LoginService } from './login/login.service';
-import {AuthFirebaseService} from './services/auth-firebase.service';
+import { AuthFirebaseService } from './services/auth-firebase.service';
+import { NotifyService } from './services/notify.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -45,7 +48,9 @@ import { RegisterComponent } from './register/register.component';
     NgbModule.forRoot(),
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     AuthService,
@@ -54,6 +59,7 @@ import { RegisterComponent } from './register/register.component';
     RegisterService,
     LoginService,
     AuthFirebaseService,
+    NotifyService,
     AngularFireDatabase,
     AngularFireAuth,
     {

@@ -1,7 +1,16 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between fixed-top">
   <a class="navbar-brand text-white" routerLink="home">Front-Angular</a>
 
-  <form class="form-inline">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="navbar-brand text-white cursor">
+          <span class="fa fa-globe"></span>
+        </a>
+        <span class="badge badge-notify bg-primary">{{notifyService.countNotify}}</span>
+      </li>
+    </ul>
+
+  <form class="form-inline navbar-nav mr-auto">
     <div class="form-group">
       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
     </div>

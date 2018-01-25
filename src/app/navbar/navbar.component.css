@@ -10,3 +10,12 @@
   overflow-y: auto;
   border-right: 1px solid #eee;
 }
+
+.badge-notify {
+  /*background: blue;*/
+  position: relative;
+  top: -12px;
+  left: -30px;
+  height: 18px;
+  color: #fff;
+}
